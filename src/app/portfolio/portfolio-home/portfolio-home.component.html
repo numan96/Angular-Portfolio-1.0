@@ -1,0 +1,79 @@
+<div class="container">
+  <div class="row">
+    <div class="column" *ngFor="let portfolioitem of portfolioItems">
+      <mat-card class="bgcolor maincolour">
+        <mat-card-header>
+          <fa-icon
+            mat-card-avatar
+            [icon]="faLaptopCode"
+            class="fa-2x"
+          ></fa-icon>
+          <mat-card-title>{{ portfolioitem.projectName }}</mat-card-title>
+          <!-- <mat-card-subtitle>Subtitle</mat-card-subtitle> -->
+        </mat-card-header>
+
+        <div
+          class="paddingAll2"
+          *ngIf="
+            portfolioitem.projectId != 'treasure-hunt-jquery-website' &&
+            portfolioitem.projectId != 'ar-android-maths-app' &&
+            portfolioitem.projectId != 'ng-chatroom-application'
+          "
+        >
+          <img
+            mat-card-image
+            class="border picture"
+            src="{{ portfolioitem.projectImages[0] }}"
+          />
+        </div>
+
+        <div
+          class="paddingAll2"
+          *ngIf="portfolioitem.projectId == 'ng-chatroom-application'"
+        >
+          <img
+            mat-card-image
+            class="border picture"
+            src="{{ portfolioitem.projectImages[4] }}"
+          />
+        </div>
+
+        <div
+          class="paddingAll2"
+          *ngIf="
+            portfolioitem.projectId == 'treasure-hunt-jquery-website' ||
+            portfolioitem.projectId == 'ar-android-maths-app'
+          "
+        >
+          <img
+            mat-card-image
+            class="border apps"
+            src="{{ portfolioitem.projectImages[0] }}"
+          />
+        </div>
+
+        <!-- <mat-card-content class="limit" style="font-weight: bold;">{{ portfolioitem.projectDescription }}</mat-card-content> -->
+
+        <mat-card-actions
+          ><button
+            class="gradient stroke"
+            [routerLink]="['/portfolio', portfolioitem.projectId]"
+          >
+            VIEW PROJECT
+          </button></mat-card-actions
+        >
+
+        <mat-card-footer>
+          <mat-chip-list class="padding5">
+            <mat-chip
+              color="secondary"
+              selected
+              *ngFor="let skills of portfolioitem.projectSkills"
+              >{{ skills }}</mat-chip
+            >
+          </mat-chip-list></mat-card-footer
+        >
+      </mat-card>
+    </div>
+  </div>
+</div>

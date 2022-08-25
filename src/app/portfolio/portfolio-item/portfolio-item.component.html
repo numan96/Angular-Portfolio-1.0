@@ -1,0 +1,256 @@
+<div class="container">
+  <div class="row">
+    <div class="marginAuto">
+      <p class="stroke biggertxt maincolour">{{ portfolioItem.projectName }}</p>
+    </div>
+
+    <div class="columnPortfolioItem maincolour">
+      <div class="portfolioAlignment">
+        <p class="smalltxt maincolour">
+          {{ portfolioItem.projectDescription }}
+        </p>
+      </div>
+
+      <div
+        *ngIf="portfolioItem.projectId == 'ng-course-project'"
+        class="portfolioAlignment"
+      >
+        <p class="smalltxt maincolour">
+          The website implemented NgRx in the end and is a recipe book website,
+          where users can manage recipes (click Manage in the top right once
+          signed in -> Fetch Data) and be able to add ingredients of the recipe
+          to a shopping list and add/edit/delete recipes. The changes to the
+          recipes can be saved in the Manage tab (Save Data) which is updated in
+          the Firebase DB. Users are also able to edit the shopping list by
+          changing quantities and deleting ingredients.
+        </p>
+
+        <p class="smalltxt maincolour">
+          For a detailed look at implemented Angular features, please feel free
+          to view the GitHub project below.
+        </p>
+        <p class="smalltxt maincolour">
+          A link to the Course Completion Certificate can be found on my Resume.
+        </p>
+        <br />
+        <p class="smalltxt maincolour">
+          Test credentials for the live website:
+        </p>
+
+        <p class="smalltxt maincolour">Email: test@test.com</p>
+
+        <p class="smalltxt maincolour">Password: test123</p>
+      </div>
+
+      <div
+        *ngIf="portfolioItem.projectId == 'ng-technical-task'"
+        class="portfolioAlignment"
+      >
+        <p class="smalltxt maincolour">
+          All requirements were implemented and feedback was all very positive.
+        </p>
+        <p class="smalltxt maincolour">
+          Design choices and the dependencies used can be found in the README.md
+          file within GitHub.
+        </p>
+        <p class="smalltxt maincolour">
+          They liked me to use the Angular framework, but apart from that it was
+          up to me to make sensible decisions about the design and development.
+          The products must be dynamic, using data from an API which they had
+          provided.
+        </p>
+      </div>
+
+      <div
+        *ngIf="portfolioItem.projectId == 'ng-chatroom-application'"
+        class="portfolioAlignment"
+      >
+        <p class="smalltxt maincolour">
+          Authentication was done through Firebase and an Authentication
+          Service, Inviting other registered users was done using an invite
+          button component that uses rxjs to receive values from the form field
+          and pass it to a function from Stream.io that filters matching users.
+        </p>
+
+        <p class="smalltxt maincolour">
+          A method to create new channels was also created using a seperate
+          function called, which dasherizes and lowercases the users form field
+          input and sends it to a service function by stream.io that sends the
+          name and the users ID as one of the members of the chatroom.
+        </p>
+
+        <p class="smalltxt maincolour">
+          Test credentials for the live website (or you may sign up yourself!):
+        </p>
+
+        <p class="smalltxt maincolour">Email: test@test.com</p>
+
+        <p class="smalltxt maincolour">Password: test123</p>
+      </div>
+
+      <div
+        *ngIf="portfolioItem.projectId == 'ng-flixible'"
+        class="portfolioAlignment"
+      >
+        <p class="smalltxt maincolour">
+          In my specification before the project, I aimed to allow users to view
+          films and more details without authenticating, once authenticated
+          however, they could add films to their watched lists and favourites
+          list (accessible with the person icon top right of the nav bar) to
+          keep track of which films that might be upcoming they want to watch or
+          to track which films they have watched already (including the date
+          which they have watched them). I also aimed to have a search bar that
+          was in the navigation bar accessable anywhere on the website. I also
+          wished to have a layout for mobile and PC which I achieved.
+        </p>
+
+        <p class="smalltxt maincolour">
+          Below is the specification (green being completed goals) including
+          features that could be added in the future if I wish to (in white
+          text).
+        </p>
+        <pdf-viewer
+          src="/assets/FlixibleSpecification.pdf"
+          [render-text]="true"
+          style="display: block"
+          [fit-to-page]="true"
+        ></pdf-viewer>
+
+        <p class="smalltxt maincolour">
+          Below is my first concept I made of the homepage before starting the
+          project.
+        </p>
+        <img
+          class="imgPortfolioMobile imgPortfolio"
+          style="max-height: 50%"
+          src="assets/Acrobat_ntIRMUSCqQ.png"
+        />
+
+        <p class="smalltxt maincolour">
+          For a detailed look at implemented Angular features, please feel free
+          to view the GitHub project below.
+        </p>
+
+        <br />
+        <p class="smalltxt maincolour">
+          Test credentials for the live website (or you may sign up yourself!):
+        </p>
+
+        <p class="smalltxt maincolour">Email: test@test.com</p>
+
+        <p class="smalltxt maincolour">Password: test123</p>
+
+        <p class="smalltxt maincolour">
+          Below are screenshots from an Android device, PC and an iPad.
+        </p>
+      </div>
+
+      <div class="portfolioAlignment">
+        <mat-chip-list class="padding5">
+          <mat-chip
+            class="padding5"
+            color="secondary"
+            selected
+            *ngFor="let skills of portfolioItem.projectSkills"
+            >{{ skills }}</mat-chip
+          >
+        </mat-chip-list>
+      </div>
+      <div
+        class="marginAuto paddingTop2"
+        *ngIf="
+          portfolioItem.projectId != 'charity-football-poster' &&
+          portfolioItem.projectId != 'vitz-wordpress-website' &&
+          portfolioItem.projectId != 'vitz-2.0-wordpress-website'
+        "
+      >
+        <a
+          class="workLink bigtxt"
+          [href]="portfolioItem.projectLink"
+          target="_blank"
+          >View GitHub Project</a
+        >
+      </div>
+      <div
+        class="marginAuto paddingTop2"
+        *ngIf="portfolioItem.projectId == 'vitz-2.0-wordpress-website'"
+      >
+        <a
+          class="workLink bigtxt"
+          [href]="portfolioItem.projectLink"
+          target="_blank"
+          >View Website</a
+        >
+      </div>
+      <div
+        class="marginAuto paddingTop2"
+        *ngIf="portfolioItem.projectId == 'ng-chatroom-application'"
+      >
+        <a
+          class="workLink bigtxt"
+          href="https://get-chatrooms.web.app/"
+          target="_blank"
+          >View Live Website</a
+        >
+      </div>
+      <div
+        class="marginAuto paddingTop2"
+        *ngIf="portfolioItem.projectId == 'ng-course-project'"
+      >
+        <a
+          class="workLink bigtxt"
+          href="http://ng-course-recipe-book-4243a.web.app/"
+          >View Live Website</a
+        >
+      </div>
+
+      <div
+        class="marginAuto paddingTop2"
+        *ngIf="portfolioItem.projectId == 'ng-fitness-tracker'"
+      >
+        <a
+          class="workLink bigtxt"
+          href="https://ng-fitness-tracker-c9521.web.app/"
+          >View Live Website</a
+        >
+      </div>
+
+      <div
+        class="marginAuto paddingTop2"
+        *ngIf="portfolioItem.projectId == 'ng-technical-task'"
+      >
+        <a class="workLink bigtxt" href="https://ng-numan-oneiota-task.web.app/"
+          >View Live Website</a
+        >
+      </div>
+      <div
+        class="marginAuto paddingTop2"
+        *ngIf="portfolioItem.projectId == 'ng-flixible'"
+      >
+        <a class="workLink bigtxt" href="https://ng-flixible.web.app/films"
+          >View Live Website</a
+        >
+      </div>
+
+      <img
+        class="imgPortfolioMobile imgPortfolio"
+        style="max-height: 50%"
+        *ngFor="let images of portfolioItem.projectImages"
+        src="{{ images }}"
+      />
+
+      <div
+        class=""
+        *ngIf="portfolioItem.projectId == 'vitz-2.0-wordpress-website'"
+      >
+        <video class="videoPortfolio videoPortfolioMobile" autoplay controls>
+          <source
+            *ngFor="let videos of portfolioItem.projectVideos"
+            src="{{ videos }}"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,97 @@
+
+<div class="container">
+
+
+<div class="row">
+    <div class="columnSocial lightcolour">
+
+        <p class="bigtxt maincolour">Socials</p>
+      
+       <a class="workLink" href="https://github.com/numan96" target="_blank"><fa-icon [icon]="faGithubSquare" matTooltipPosition="left" matTooltip="View my GitHub!" matTooltipClass="example-tooltip-blue" class="fa-2x paddingAll2"></fa-icon></a>
+    
+      <a class="workLink " href="https://www.linkedin.com/in/numan-mumtaz-1b856087/" target="_blank"><fa-icon [icon]="faLinkedIn" matTooltipPosition="right" matTooltip="View my LinkedIn!" matTooltipClass="example-tooltip-blue" class="fa-2x paddingAll2"></fa-icon></a>
+  
+    
+    </div>
+    
+   <form
+   (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
+  
+       <div class="columnform">
+       <div class="lightcolour">
+        <p><label class="smalltxt">Full Name</label></p>
+
+<input [(ngModel)]="name"
+class="input"
+style="padding: 1%"
+size="30%"
+name="name"
+type="text"
+placeholder="Full Name"
+required
+minlength="3"
+#nameInput="ngModel">
+
+<div class="is-error" *ngIf="nameInput.invalid && nameInput.dirty">
+    Name is required and needs to be at least 3 characters long.
+  </div>
+</div>
+
+<div class="lightcolour">
+    <p> <label class="smalltxt">Email Address</label></p>
+    <input
+    [(ngModel)]="email"
+    class="input"
+    style="padding: 1%"
+    type="email"
+    name="email"
+    size="30%"
+    placeholder="email@example.co.uk"
+    required
+    email
+    #emailInput="ngModel"> 
+
+    <div class="is-error" *ngIf="emailInput.invalid && emailInput.dirty">
+        Needs to be a valid email.
+      </div>
+</div>
+
+<div class="lightcolour">
+   <p> <label  class="smalltxt">Message</label></p>
+    
+   <textarea
+   [(ngModel)]="message"
+   class="textarea"
+   rows="10"
+   cols="100"
+   name="message"
+   placeholder="please enter your message here!"
+   required
+   #messageInput="ngModel"></textarea>
+
+   <div class="is-error" *ngIf="messageInput.invalid && messageInput.dirty">
+    Your message is required!
+  </div>
+</div>
+
+<div class="maincolour smallertxt">BUTTON WILL SHOW WHEN READY TO SUBMIT!</div>
+
+<button type="submit" class="gradient stroke" *ngIf="!messageInput.invalid && !emailInput.invalid && !nameInput.invalid">SUBMIT</button>
+
+</div>
+
+</form>
+
+<div class="columnmap lightcolour">
+
+
+   <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=100%&amp;hl=en&amp;q=high%20wycombe+()&amp;t=h&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+
+
+</div>
+
+
+
+</div>
+
+</div>
